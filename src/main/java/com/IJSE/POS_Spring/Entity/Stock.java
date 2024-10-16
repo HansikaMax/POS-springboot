@@ -27,7 +27,7 @@ public class Stock {
 
     private Long quantity;
 
-    private String transctype;
+    private String transctype; //either IN or OUT
 
     private LocalDateTime orderDateTime;
 
