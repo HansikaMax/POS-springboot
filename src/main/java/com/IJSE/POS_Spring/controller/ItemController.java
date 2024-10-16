@@ -27,6 +27,7 @@ public class ItemController {
     @Autowired
     private ItemCategoryService categoryService;
 
+
     @GetMapping("/items")
 public ResponseEntity<List<Item>> getAllItems(){
 
@@ -70,8 +71,6 @@ public ResponseEntity<Item> updateItem(@RequestBody ItemDto itemDto, @PathVariab
 
     Item updatedItem= itemService.updateItem(itemId, item);
     return ResponseEntity.status(200).body(updatedItem);
-
-
 }
 
 }
