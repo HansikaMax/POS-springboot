@@ -15,17 +15,17 @@ public class PosServiceImpl implements PosService {
     private PosRepository posRepository;
 
     @Override
-    public List<Pos> getAllItems() {
+    public List<Pos> getAllPoss() {
         return posRepository.findAll();
     }
 
     @Override
-    public Pos createItem(Pos pos) {
+    public Pos createPos(Pos pos) {
         return posRepository.save(pos);
     }
 
     @Override
-    public Pos getItemById(Long id) {
+    public Pos getPosById(Long id) {
         return posRepository.findById(id).orElse(null);
     }
 

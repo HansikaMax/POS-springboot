@@ -9,8 +9,8 @@ import com.IJSE.POS_Spring.Entity.Pos;
 public interface PosService {
     
 
-    List<Pos> getAllItems();  
-    Pos createItem (Pos pos);
-    Pos getItemById(Long id);
+    List<Pos> getAllPoss();  
+    Pos createPos (Pos pos);
+    Pos getPosById(Long id);
 
 }
