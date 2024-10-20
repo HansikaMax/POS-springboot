@@ -1,6 +1,5 @@
 package com.IJSE.POS_Spring.dto;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import lombok.Getter;
@@ -10,8 +9,6 @@ import lombok.Setter;
 @Setter
 public class PosDto {
     private List<Long> itemIds;
+    private List<Long> quantities;
 
-    private Double totalPrice;
-
-    private LocalDateTime PosDateTime;
 }

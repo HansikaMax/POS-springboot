@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.IJSE.POS_Spring.Entity.Item;
 import com.IJSE.POS_Spring.Entity.Stock;
 import com.IJSE.POS_Spring.dto.StockDto;
+import com.IJSE.POS_Spring.dto.StockRemainingDto;
 import com.IJSE.POS_Spring.service.ItemService;
 import com.IJSE.POS_Spring.service.StockService;
+import com.IJSE.POS_Spring.service.StockServiceImpl;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,6 +32,10 @@ public class StockController {
     @Autowired
     private ItemService itemService;
 
+    @Autowired
+    private StockServiceImpl stockServiceImpl;
+
+
     @GetMapping("/stocks")
     public ResponseEntity<List<Stock>> getAllStocks(){
         List<Stock> stocks= stockService.getAllStocks();
@@ -36,6 +43,12 @@ public class StockController {
       return ResponseEntity.status(200).body(stocks);
 
     }
+
+    @GetMapping("/stocks/remaining")
+public ResponseEntity<List<StockRemainingDto>> getRemainingStock() {
+    List<StockRemainingDto> remainingStock = stockServiceImpl.calculateRemainingStock();
+    return ResponseEntity.ok(remainingStock);
+}
 
     @PostMapping("/stocks")
     public ResponseEntity<Stock> createStock(@RequestBody StockDto stockDto){
